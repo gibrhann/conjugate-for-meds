@@ -1,3 +1,5 @@
+import { count } from "console";
+
 export class ConjugateGenerator {
   numbers: number[];
 
@@ -7,13 +9,14 @@ export class ConjugateGenerator {
 
   findConjugate(): void {
     this.verifyNumbers();
-    console.log(`Collection of positive integers: { ${this.numbers} }`);
+    console.log(`Collection of positive integers: [${this.numbers}]`);
     console.log('Bead representation:');
     this.beadPrint(this.numbers);
     console.log('Conjugate bead representation:');
-    this.conjugateBeadGen();
+    const count = this.conjugateBeadGen();
+    this.beadPrint(count);
     console.log('Conjugate collection of integers:');
-    
+    console.log(JSON.stringify(count));
   }
 
   private verifyNumbers() {
@@ -43,19 +46,20 @@ export class ConjugateGenerator {
     return arrayOfArraysOfBeads;
   }
 
-  private conjugateBeadGen(): void {
+  private conjugateBeadGen(): number[] {
     const arrayOfBeads = this.beadArrayGen();
-    const conjugateBeadRepObject: number[] = [];
+    let count: number;
+    let countobj: number[]= []
     for (let column = 0; column < arrayOfBeads[0].length; column++) {
-      let count = 0;
+      count = 0;
       for (let row = 0; row < arrayOfBeads.length; row++) {
         if (arrayOfBeads[row][column] === 'o') {
           count++;
         }
       }
-      conjugateBeadRepObject.push(count);
+      countobj.push(count);
     }
-    this.beadPrint(conjugateBeadRepObject);
+    return countobj;
   }
 
 

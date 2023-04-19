@@ -20,3 +20,25 @@ const getConjugate = new ConjugateGenerator(numbers);
 ```
 npm run start
 ```
+
+## Output
+```
+Starting Program...
+Collection of positive integers: [5,3,1]
+Bead representation:
+ooooo
+ooo
+o
+Conjugate bead representation:
+ooo
+oo
+oo
+o
+o
+Conjugate collection of integers:
+[3,2,2,1,1]
+```
+## Notes
+
+I probably could have used a partition formula to make this easier.
+This was fun.
